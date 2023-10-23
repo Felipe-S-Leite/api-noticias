@@ -5,7 +5,7 @@ npx sequelize-cli model:generate --name Usuario --attributes email:STRING,senha:
 npx sequelize-cli model:generate --name Categoria --attributes nome_da_categoria:STRING,descricao_da_categoria:STRING
 npx sequelize-cli model:generate --name Editoria_Secao --attributes nome_da_editoria:STRING,descricao_da_editoria:STRING
 npx sequelize-cli model:generate --name ArtigoDeNoticia --attributes titulo:STRING,iddacategoria:INTEGER,data_de_publicacao:STRING,iddeAutor:INTEGER,imagens_videos_relacionados:STRING,tags_palavras_chave:STRING,conteudo_do_arigo:STRING,idEditora:INTEGER
-
+npx sequelize-cli model:generate --name usuario --attributes email:STRING,senha:STRING
 npx sequelize-cli model:generate --name AvaliacaoDeArtigo --attributes artigo_avaliado_referencia_ao_artigo_:INTEGER,pontuacao_estrelas_:FLOAT,comentarios:STRING,data_da_avaliacao:DATE,idusuario:INTEGER
 
 npx sequelize-cli model:generate --name NotificacaoDeNovasNoticias --attributes data_de_notificacao:DATE,estado_da_noticacao_lida_nao_lida:BOOLEAN,leitores_a_serem_notificados:INTEGER,tipo_de_notificacao_novo_artigo_atualizacao_etc_:STRING,idNoticia:INTEGER

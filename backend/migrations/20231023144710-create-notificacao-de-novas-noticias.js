@@ -16,13 +16,19 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       leitores_a_serem_notificados: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'usuarios', key: 'id'},
+        onDelete: 'CASCADE'
       },
       tipo_de_notificacao_novo_artigo_atualizacao_etc_: {
         type: Sequelize.STRING
       },
       idNoticia: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'ArtigoDeNoticia', key: 'id'},
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

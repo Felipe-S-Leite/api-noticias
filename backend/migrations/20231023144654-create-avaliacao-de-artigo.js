@@ -2,44 +2,32 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ArtigoDeNoticia', {
+    await queryInterface.createTable('AvaliacaoDeArtigos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      titulo: {
-        type: Sequelize.STRING
-      },
-      iddacategoria: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Categoria', key: 'id'},
-        onDelete: 'CASCADE'
-      },
-      data_de_publicacao: {
-        type: Sequelize.STRING
-      },
-      iddeAutor: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Autors', key: 'id'},
-        onDelete: 'CASCADE'
-      },
-      imagens_videos_relacionados: {
-        type: Sequelize.STRING
-      },
-      tags_palavras_chave: {
-        type: Sequelize.STRING
-      },
-      conteudo_do_arigo: {
-        type: Sequelize.STRING
-      },
-      idEditora: {
+      artigo_avaliado_referencia_ao_artigo_: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Editoria_Secaos', key: 'id'},
+        onDelete: 'CASCADE'
+      },
+      pontuacao_estrelas_: {
+        type: Sequelize.FLOAT
+      },
+      comentarios: {
+        type: Sequelize.STRING
+      },
+      data_da_avaliacao: {
+        type: Sequelize.DATE
+      },
+      idusuario: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'usuarios', key: 'id'},
         onDelete: 'CASCADE'
       },
       createdAt: {
@@ -53,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ArtigoDeNoticia');
+    await queryInterface.dropTable('AvaliacaoDeArtigos');
   }
 };

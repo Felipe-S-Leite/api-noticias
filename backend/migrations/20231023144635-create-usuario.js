@@ -2,27 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('AvaliacaoDeArtigos', {
+    await queryInterface.createTable('usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      artigo_avaliado_referencia_ao_artigo_: {
-        type: Sequelize.INTEGER
-      },
-      pontuacao_estrelas_: {
-        type: Sequelize.FLOAT
-      },
-      comentarios: {
+      email: {
         type: Sequelize.STRING
       },
-      data_da_avaliacao: {
-        type: Sequelize.DATE
-      },
-      idusuario: {
-        type: Sequelize.INTEGER
+      senha: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('AvaliacaoDeArtigos');
+    await queryInterface.dropTable('usuarios');
   }
 };

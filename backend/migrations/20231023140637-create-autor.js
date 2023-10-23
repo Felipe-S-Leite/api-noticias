@@ -18,9 +18,6 @@ module.exports = {
       imagens_da_noticia: {
         type: Sequelize.STRING
       },
-      artigos_escritos: {
-        type: Sequelize.STRING
-      },
       foto_do_autor: {
         type: Sequelize.STRING
       },
